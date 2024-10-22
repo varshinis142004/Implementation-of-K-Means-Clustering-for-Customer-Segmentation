@@ -8,17 +8,22 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
- Step 1: Start
+Step 1. Start the program
 
- Step 2: Data Preparation: Load and explore customer data.
- 
- Step 3: Determine Optimal Clusters: Use the Elbow Method to find the best number of clusters.
- 
- Step 4: Apply K Means Clustering: Perform clustering on customer data.
- 
- Step 5: Visualize Segmented Customers: Plot clustered data to visualize customer segments.
- 
- Step 6: End
+Step 2. Import the necessary python libraries
+
+Step 3. Read the dataset of Mall_Customers csv file
+
+Step 4. From sklearn libraary select the cluster and import KMeans Clustering
+
+Step 5. Find the sum of squared distance between each points and the centroid in a cluster using Elbow Method
+
+Step 6. Plot the graph x and y as Number of Clusters and wcss respectively
+
+Step 7. Using the matplotlib library draw the scatter plot for the given number of clusters (ie. here n_clusters = 5)
+
+Step 8. Stop the program
+
 ## Program:
 ```
 /*
@@ -77,12 +82,27 @@ plt.title("Customer Segments")
 ```
 
 ## Output:
+## head :
+![image](https://github.com/user-attachments/assets/e1d8328a-0ac9-45ee-bc33-c686b77ead99)
 
-![image](https://github.com/Sajetha13/Implementation-of-K-Means-Clustering-for-Customer-Segmentation/assets/138849316/b6d05d6a-240a-4363-a3ec-930baf12b706)
-### y_pred:
-![image](https://github.com/Sajetha13/Implementation-of-K-Means-Clustering-for-Customer-Segmentation/assets/138849316/4d502d17-a83c-4478-9e03-9e2d721d8780)
-### cluster:
-![image](https://github.com/Sajetha13/Implementation-of-K-Means-Clustering-for-Customer-Segmentation/assets/138849316/72c303f8-a9a3-4ef6-a395-82d8424ad990)
+## Info :
+![image](https://github.com/user-attachments/assets/bd2d38f4-4ed4-4532-bb00-d9463c10b8d3)
+
+## No.of Null-Values :
+![image](https://github.com/user-attachments/assets/a849602f-d3e3-4ead-9d3d-f08a841400db)
+
+## Graph:
+![image](https://github.com/user-attachments/assets/154cef8e-c91c-44dc-972c-274630f3a75e)
+
+## No.of clusters :
+![image](https://github.com/user-attachments/assets/bbd7ca4e-a52a-48b2-bfe2-f1bd4cc369be)
+
+## Predicted values :
+![image](https://github.com/user-attachments/assets/e53b1ffc-bfdc-4773-ae38-ec3d45fe1273)
+
+## Customer Segments :
+![image](https://github.com/user-attachments/assets/e22ff6e8-9ebb-44a5-a9bf-2ed1a5a36a4c)
+
 
 
 ## Result:
