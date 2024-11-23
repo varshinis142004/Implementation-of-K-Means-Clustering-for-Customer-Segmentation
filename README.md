@@ -1,4 +1,4 @@
-## EX:10 Implementation-of-K-Means-Clustering-for-Customer-Segmentation
+# Implementation-of-K-Means-Clustering-for-Customer-Segmentation
 
 ## AIM:
 To write a program to implement the K Means Clustering for Customer Segmentation.
@@ -8,100 +8,85 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-Step 1. Start the program
+1.Load the Mall_customers.csv dataset, inspect initial rows and check for missing values to understand the data structure.
 
-Step 2. Import the necessary python libraries
+2. Use the Elbow Method to determine the optimal number of clusters by training multiple KMeans models (from 1 to 10 clusters) and recording the Within-Cluster Sum of Squares (WCSS).
 
-Step 3. Read the dataset of Mall_Customers csv file
+3. Plot the WCSS values against the number of clusters to identify the optimal cluster count visually.
 
-Step 4. From sklearn libraary select the cluster and import KMeans Clustering
+4. Train a KMeans model with 5 clusters (based on the elbow point), and predict the cluster for each customer.
 
-Step 5. Find the sum of squared distance between each points and the centroid in a cluster using Elbow Method
-
-Step 6. Plot the graph x and y as Number of Clusters and wcss respectively
-
-Step 7. Using the matplotlib library draw the scatter plot for the given number of clusters (ie. here n_clusters = 5)
-
-Step 8. Stop the program
+5. Visualize the clusters by plotting "Annual Income" against "Spending Score" for each cluster, using different colors for clear segmentation.
 
 ## Program:
 ```
 /*
 Program to implement the K Means Clustering for Customer Segmentation.
 Developed by: VARSHINI S
-RegisterNumber: 212222220056
-*/
-```
-```
+RegisterNumber:  212222220056
 import pandas as pd
 import matplotlib.pyplot as plt
-data = pd.read_csv("C:/Users/admin/Downloads/printed pdfs/Mall_Customers.csv")
-
+data=pd.read_csv('Mall_customers.csv')
 data.head()
 
 data.info()
 
+data.isnull()
+
 data.isnull().sum()
 
 from sklearn.cluster import KMeans
-wcss = []
+wcss=[]
 
 for i in range(1,11):
-    kmeans = KMeans(n_clusters = i,init = "k-means++")
+    kmeans=KMeans(n_clusters =i,init ="k-means++")
     kmeans.fit(data.iloc[:,3:])
     wcss.append(kmeans.inertia_)
 
+
 plt.plot(range(1,11),wcss)
-plt.xlabel("No of Cluster")
+plt.xlabel("No. of Clusters")
 plt.ylabel("wcss")
 plt.title("Elbow Method")
 
-km = KMeans(n_clusters = 5)
+km =KMeans(n_clusters=5)
 km.fit(data.iloc[:,3:])
 
-KMeans(n_clusters=5)
-
-y_pred = km.predict(data.iloc[:,3:])
+y_pred =km.predict(data.iloc[:,3:])
 y_pred
 
+df0.head()
 
-data["cluster"]=y_pred
-df0 = data[data["cluster"]==0]
-df1 = data[data["cluster"]==1]
-df2 = data[data["cluster"]==2]
-df3 = data[data["cluster"]==3]
-df4 = data[data["cluster"]==4]
+df1.head()
+
+df2.head()
+
+df3.head()
+
+df4.head()
+
 plt.scatter(df0["Annual Income (k$)"],df0["Spending Score (1-100)"],c="red",label="cluster0")
-plt.scatter(df1["Annual Income (k$)"],df1["Spending Score (1-100)"],c="black",label="cluster1")
-plt.scatter(df2["Annual Income (k$)"],df2["Spending Score (1-100)"],c="blue",label="cluster2")
-plt.scatter(df3["Annual Income (k$)"],df3["Spending Score (1-100)"],c="green",label="cluster3")
+plt.scatter(df1["Annual Income (k$)"],df1["Spending Score (1-100)"],c="blue",label="cluster1")
+plt.scatter(df2["Annual Income (k$)"],df2["Spending Score (1-100)"],c="green",label="cluster2")
+plt.scatter(df3["Annual Income (k$)"],df3["Spending Score (1-100)"],c="black",label="cluster3")
 plt.scatter(df4["Annual Income (k$)"],df4["Spending Score (1-100)"],c="magenta",label="cluster4")
 plt.legend()
 plt.title("Customer Segments")
-
+*/
 ```
 
 ## Output:
-## head :
-![image](https://github.com/user-attachments/assets/e1d8328a-0ac9-45ee-bc33-c686b77ead99)
-
-## Info :
-![image](https://github.com/user-attachments/assets/bd2d38f4-4ed4-4532-bb00-d9463c10b8d3)
-
-## No.of Null-Values :
-![image](https://github.com/user-attachments/assets/a849602f-d3e3-4ead-9d3d-f08a841400db)
-
-## Graph:
-![image](https://github.com/user-attachments/assets/154cef8e-c91c-44dc-972c-274630f3a75e)
-
-## No.of clusters :
-![image](https://github.com/user-attachments/assets/bbd7ca4e-a52a-48b2-bfe2-f1bd4cc369be)
-
-## Predicted values :
-![image](https://github.com/user-attachments/assets/e53b1ffc-bfdc-4773-ae38-ec3d45fe1273)
-
-## Customer Segments :
-![image](https://github.com/user-attachments/assets/e22ff6e8-9ebb-44a5-a9bf-2ed1a5a36a4c)
+![Screenshot 2024-10-17 141847](https://github.com/user-attachments/assets/abf78096-7812-44e2-a91a-49fde8bbc06a)
+![Screenshot 2024-10-17 141856](https://github.com/user-attachments/assets/d086cad3-8bf5-4c3a-b2a7-63b9c9b39464)
+![Screenshot 2024-10-17 141904](https://github.com/user-attachments/assets/c915cebe-0ce3-4176-8401-22a04b49e0dd)
+![Screenshot 2024-10-17 141922](https://github.com/user-attachments/assets/c2f87d66-4e44-4af6-a5b5-bd8fd24908dc)
+![Screenshot 2024-10-17 141932](https://github.com/user-attachments/assets/48574418-c177-4b8b-b771-607ef0acb23e)
+![Screenshot 2024-10-17 141942](https://github.com/user-attachments/assets/c23a47cb-f83c-4a80-8804-b7f9872fab81)
+![Screenshot 2024-10-17 141948](https://github.com/user-attachments/assets/28f556e0-8718-416f-8fcb-9d01fe65b718)
+![Screenshot 2024-10-17 141955](https://github.com/user-attachments/assets/21162449-0fc3-4341-a011-1c2062bff558)
+![Screenshot 2024-10-17 142002](https://github.com/user-attachments/assets/25eb3f39-97ce-4e30-a8a5-61cfe57e08dc)
+![Screenshot 2024-10-17 142008](https://github.com/user-attachments/assets/45333978-5e4d-4909-9314-b5a5d23bb3c4)
+![Screenshot 2024-10-17 142020](https://github.com/user-attachments/assets/6e214a8c-e7e1-4adb-a143-301c6477f169)
 
 
 
